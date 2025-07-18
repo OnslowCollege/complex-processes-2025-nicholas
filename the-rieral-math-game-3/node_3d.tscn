@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfc65c3cm8jt1"]
+
+[ext_resource type="PackedScene" uid="uid://8qke4a03uk40" path="res://cube.glb" id="1_a202f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.54425)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0937945, 0, -0.00633311)
+
+[node name="cube" parent="StaticBody3D" instance=ExtResource("1_a202f")]
