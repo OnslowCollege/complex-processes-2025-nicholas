@@ -11,7 +11,3 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Node" type="Node" parent="."]
-
-[node name="XRCamera3D" type="XRCamera3D" parent="Node"]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Node"]
