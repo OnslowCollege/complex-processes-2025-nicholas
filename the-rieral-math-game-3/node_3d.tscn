@@ -1,13 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfc65c3cm8jt1"]
 
-[ext_resource type="PackedScene" uid="uid://8qke4a03uk40" path="res://cube.glb" id="1_a202f"]
+[ext_resource type="PackedScene" uid="uid://daw0afhvjgmri" path="res://crt.glb" id="1_a202f"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.54425)
+[node name="crt" parent="." instance=ExtResource("1_a202f")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0937945, 0, -0.00633311)
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
 
-[node name="cube" parent="StaticBody3D" instance=ExtResource("1_a202f")]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0115709)
+tracker = &"right_hand"
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00578547)
+tracker = &"left_hand"
