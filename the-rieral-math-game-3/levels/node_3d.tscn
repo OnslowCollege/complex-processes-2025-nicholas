@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfc65c3cm8jt1"]
+
+[ext_resource type="PackedScene" uid="uid://daw0afhvjgmri" path="res://objest/crt.glb" id="1_465jp"]
+[ext_resource type="Script" uid="uid://nadnxc8cywi" path="res://scripeds/VR_stuff.gd" id="2_1o5x8"]
+
+[sub_resource type="Environment" id="Environment_465jp"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_1o5x8"]
+
+[sub_resource type="Compositor" id="Compositor_7qh1q"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="crt" parent="." instance=ExtResource("1_465jp")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 1.64274, -5)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+current = true
+script = ExtResource("2_1o5x8")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90166, 0)
+environment = SubResource("Environment_465jp")
+attributes = SubResource("CameraAttributesPhysical_1o5x8")
+compositor = SubResource("Compositor_7qh1q")
+current = true
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85562, 0.425968)
